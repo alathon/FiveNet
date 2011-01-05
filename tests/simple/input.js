@@ -1,10 +1,14 @@
 (function(exports) {
-  var InputHandler = function() {
-    this.keys = [];
+  var InputHandler = {
+    keys: []
   };
   
-  exports.setKey = function(keyCode, f) {
+  exports.bindKey = function(keyCode, f) {
     InputHandler.keys[keyCode] = f;  
+  };
+  
+  exports.unbindKey = function(keyCode) {
+    InputHandler.keys[keyCode] = null;  
   };
   
   exports.keyDown = function(keyCode) {
